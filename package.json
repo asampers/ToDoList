@@ -1,0 +1,23 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "to do list app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asampers/ToDoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asampers/ToDoList/issues"
+  },
+  "homepage": "https://github.com/asampers/ToDoList#readme",
+  "devDependencies": {
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.0.2"
+  }
+}
