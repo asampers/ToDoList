@@ -1,11 +1,14 @@
+'use strict'
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  entry: './src/js/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'To Do List',
+      template: './src/index.html' 
     }),
   ],
   output: {
