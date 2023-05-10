@@ -7,30 +7,57 @@
   <title>To Do List</title>
 <script defer src="main.js"></script></head>
 <body>
-  <form class="new-task">
-    <div class="mb-3 mt-3">
-      <label for="title" class="form-label">Title:</label>
-      <input type="text" class="form-control" id="title"  name="title">
-    </div>
-    <div class="mb-3">
-      <label for="description" class="form-label">Description:</label>
-      <textarea class="form-control" rows="3" id="description" name="text"></textarea>
-    </div>
-    <div class="form-row justify-content-between align-items-center">
-      <div class="col-auto my-1">
-        <label for="date">Due Date:</label>
-        <input class="form-control" type="date" name="date" id="date" placeholder="today" required>
+  <!-- Button to Open the newTaskModal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newTask">
+  Add Task
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="newTask">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">New Task</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="col-auto my-1">
-        <label for="priority" class="form-label">Priority Level:</label>
-        <select id="priority" class="form-select">
-          <option></option>
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
-        </select>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="new-task">
+          <div class="mb-3 mt-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title"  name="title">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" rows="3" id="description" name="text"></textarea>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-auto my-3">
+              <label for="date" class="form-label">Due Date:</label>
+              <input class="form-control" type="date" name="date" id="date" placeholder="today" required>
+            </div>
+            <div class="col-auto my-1">
+              <label for="priority" class="form-label">Priority Level:</label>
+              <select id="priority" class="form-select">
+                <option></option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </form>
       </div>
     </div>
-  </form>
+  </div>
+</div>
 </body>
 </html>
