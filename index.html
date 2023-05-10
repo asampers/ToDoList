@@ -12,8 +12,13 @@
   Add Task
 </button>
 
-<!-- The Modal -->
-<div class="modal" id="newTask">
+  <!-- Button to Open the newProjectModal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProject">
+  New Project
+</button>
+
+<!-- newTask Modal -->
+<div class="modal fade" id="newTask">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -48,6 +53,40 @@
                 <option>High</option>
               </select>
             </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- newProject Modal -->
+<div class="modal fade" id="newProject">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-success text-white">
+        <h4 class="modal-title">New Project</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="new-project">
+          <div class="mb-3 mt-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title"  name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" rows="3" id="description" name="text"></textarea>
           </div>
           <!-- Modal footer -->
           <div class="modal-footer">
