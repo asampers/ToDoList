@@ -7,9 +7,30 @@
   <title>To Do List</title>
 </head>
 <body>
-  <div class="container py-4 px-3 mx-auto">
-    <h1>If I change this does it work?</h1>
-    <button class="btn btn-primary">Primary button</button>
-  </div>
+  <form class="new-task">
+    <div class="mb-3 mt-3">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" class="form-control" id="title"  name="title">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea class="form-control" rows="3" id="description" name="text"></textarea>
+    </div>
+    <div class="form-row justify-content-between align-items-center">
+      <div class="col-auto my-1">
+        <label for="date">Due Date:</label>
+        <input class="form-control" type="date" name="date" id="date" placeholder="today" required>
+      </div>
+      <div class="col-auto my-1">
+        <label for="priority" class="form-label">Priority Level:</label>
+        <select id="priority" class="form-select">
+          <option></option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+      </div>
+    </div>
+  </form>
 </body>
 </html>
