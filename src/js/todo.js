@@ -1,6 +1,11 @@
-let counter = 0
+let count = localStorage.getItem('count')
 
-const ToDoFactory = (title, description, dueDate, priority, completed=false, index=counter++ ) => {
+function increaseCount() {
+  localStorage.setItem('count', ++count)
+  return count
+}
+
+const ToDoFactory = (title, description, dueDate, priority, completed=false, index=increaseCount() ) => {
   return { index, title, description, dueDate, priority, completed };
 }
 

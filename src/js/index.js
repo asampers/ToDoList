@@ -6,6 +6,8 @@ import * as bootstrap from 'bootstrap'
 
 import { createProject } from './project'
 import { createToDo } from './todo'
+import defaultProject from './defaultProject'
+import defaultCount from './defaultCount'
 
 const newTask = document.querySelector(".new-task")
 newTask.addEventListener('submit', (event) => {
@@ -24,3 +26,6 @@ newProject.addEventListener('submit', (event) => {
   newProject.reset();
   document.querySelector('.new-project-btn').click();
 })
+
+window.onload = defaultCount();
+window.onload = defaultProject();
