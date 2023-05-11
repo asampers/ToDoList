@@ -1,3 +1,5 @@
+import { getProjects } from './index';
+
 const ProjectFactory = (title, description, items={}) => {
   
   return { title, description, items };
@@ -12,4 +14,10 @@ const createProject = (event) => {
   return ProjectFactory(title, desc);
 }
 
-export { createProject };
+const addProject = (project) => {
+  const allProjects = getProjects();
+  allProjects.push(project);
+  localStorage.setItem("allProjects", JSON.stringify(allProjects));
+}
+
+export { createProject, addProject };
