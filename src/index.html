@@ -7,19 +7,35 @@
   <title>To Do List</title>
 </head>
 <body>
-<div class="content d-flex">
+<div class="">
   <!-- Navbar -->
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+  <nav class="navbar bg-light navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">To Do List</a>
+        <!-- Button to Open the newTaskModal -->
+            <button type="button" class="btn btn-primary new-task-btn" data-bs-toggle="modal" data-bs-target="#newTask">
+              Add Task
+            </button>
+      </div>
+    </nav>
+
+    <div class="d-flex flex-column p-3 bg-light" style="width: 280px; height: 93vh">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-        <span class="fs-4">Sidebar</span>
+        <span class="fs-4">To Do List</span>
       </a>
+            <div class="">
+        <!-- Button to Open the newProjectModal -->
+        <button type="button" class="btn btn-primary new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
+          New Project
+        </button>
+      </div>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
           <a href="#" class="nav-link active" aria-current="page">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-            Home
+            Projects
           </a>
         </li>
         <li>
@@ -28,53 +44,17 @@
             Dashboard
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-            Orders
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-            Products
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-            Customers
-          </a>
-        </li>
       </ul>
       <hr>
-      <div class="dropdown">
-        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong>mdo</strong>
+      <div>
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
+          <ion-icon size="large" name="logo-github"></ion-icon>  
+          <span class="ms-2">Made by Anna Sampers</span>
         </a>
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-          <li><a class="dropdown-item" href="#">New project...</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
       </div>
     </div>
-  <!-- buttons -->
-      <div>
-        <!-- Button to Open the newTaskModal -->
-        <button type="button" class="btn btn-primary new-task-btn" data-bs-toggle="modal" data-bs-target="#newTask">
-          Add Task
-        </button>
-        <!-- Button to Open the newProjectModal -->
-        <button type="button" class="btn btn-primary new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
-          New Project
-        </button>
-      </div>
-</div>
-  
+</div>    
+
 <!-- newTask Modal -->
   <div class="modal fade" id="newTask">
     <div class="modal-dialog">
@@ -121,7 +101,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 <!-- newProject Modal -->
@@ -156,5 +135,7 @@
       </div>
     </div>
   </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
