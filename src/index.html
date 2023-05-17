@@ -11,17 +11,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand bg-light p-3">
       <div class="container-fluid justify-content-between">
-        <div class="d-flex justify-content-between align-items-center ms-3">  
-        <a href="/" class=" mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <span class="fs-4 ">Projects</span>
-        </a>  
-        <!-- Button to Open the newProjectModal -->
-        <span class="ms-3">
-          <button type="button" class="btn btn-primary btn-sm new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
-            <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon></span> 
-          </button>
-        </span>
-      </div>
+      <div></div>
         <a class="fs-4" href="#">To Do List</a>
         <!-- Button to Open the newTaskModal -->
             <button type="button" class="btn btn-primary new-task-btn" data-bs-toggle="modal" data-bs-target="#newTask">
@@ -31,6 +21,18 @@
   </nav>
 
     <div class="d-flex flex-column pt-0 p-3 bg-light border-top" style="width: 280px; height: 93vh">
+      <div class="d-flex justify-content-around align-items-center mt-3">  
+        <a href="/" class=" mb-3 mb-md-0 link-dark text-decoration-none">
+          <span class="fs-4 ">Projects</span>
+        </a>  
+        <!-- Button to Open the newProjectModal -->
+        <span class="">
+          <button type="button" class="btn btn-primary btn-sm new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
+            <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon></span> 
+          </button>
+        </span>
+      </div>
+      <hr>
       <ul class="nav nav-pills flex-column mb-auto pt-3">
         <li class="nav-item">
           <a href="#" class="nav-link active" aria-current="page">
