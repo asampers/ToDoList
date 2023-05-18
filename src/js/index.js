@@ -8,6 +8,7 @@ import { createProject, addProject } from './project'
 import { createToDo } from './todo'
 import defaultProject from './defaultProject'
 import defaultCount from './defaultCount'
+import { ProjectUI } from './projectUI'
 
 const getProjects = () => {
 	return JSON.parse(localStorage.getItem("allProjects") || "[]");
@@ -32,7 +33,11 @@ newProject.addEventListener('submit', (event) => {
   document.querySelector('.new-project-btn').click();
 })
 
+
+const init = () => {
+  ProjectUI.addAllProjectsToUI();
+}
 window.onload = defaultCount();
 window.onload = defaultProject();
-
+init();
 export { getProjects };

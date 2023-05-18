@@ -1,6 +1,6 @@
 import { getProjects } from "./index";
 
-const projectUI = () => {
+const ProjectUI = (() => {
   const sidebar = document.querySelector('.sidebar');
 
   const addAllProjectsToUI = () => {
@@ -15,8 +15,17 @@ const projectUI = () => {
   }
 
   const createProjectList = (project) => {
-
+    let projectLi = document.createElement('li');
+    projectLi.classList.add('nav-item');
+    let projectA = document.createElement('a');
+    projectA.classList.add('nav-link', 'link-dark');
+    projectLi.appendChild(projectA);
+    sidebar.append(projectLi);
+    projectA.textContent = project.title;
+    return projectA;
   }
 
-  
-}
+  return { addAllProjectsToUI };
+})();
+
+export { ProjectUI };
