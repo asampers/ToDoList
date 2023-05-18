@@ -11,21 +11,27 @@ const ProjectUI = (() => {
   }
 
   const addNewProjectToUI = (project) => {
-
+    let projectBtn = createProjectList(project);
+    projectBtn.click();
   }
 
   const createProjectList = (project) => {
     let projectLi = document.createElement('li');
-    projectLi.classList.add('nav-item');
-    let projectA = document.createElement('a');
-    projectA.classList.add('nav-link', 'link-dark');
-    projectLi.appendChild(projectA);
+    projectLi.classList.add('nav-item', 'd-grid', 'mb-3');
+    let projectBtn = document.createElement('button');
+    projectBtn.classList.add('btn', 'btn-outline-dark', 'btn-block');
+    projectLi.appendChild(projectBtn);
     sidebar.append(projectLi);
-    projectA.textContent = project.title;
-    return projectA;
+    projectBtn.textContent = project.title;
+    //projectBtn.addEventListener('click', printProject());
+    return projectBtn;
   }
 
-  return { addAllProjectsToUI };
+  const printProject = (e) => {
+
+  }
+
+  return { addAllProjectsToUI, addNewProjectToUI };
 })();
 
 export { ProjectUI };

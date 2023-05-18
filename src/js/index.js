@@ -27,8 +27,8 @@ const newProject = document.querySelector(".new-project")
 newProject.addEventListener('submit', (event) => {
   event.preventDefault();
   let project = createProject(event);
-  addProject(project)
-  console.log(project);
+  addProject(project);
+  ProjectUI.addNewProjectToUI(project);
   newProject.reset();
   document.querySelector('.new-project-btn').click();
 })
