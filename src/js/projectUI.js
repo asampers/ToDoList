@@ -1,7 +1,13 @@
 import { getProjects } from "./index";
+import TodoUI from "./todoUI";
 
 const ProjectUI = (() => {
   const sidebar = document.querySelector('.sidebar');
+  let projectIndex;
+  let activeProject;
+  let activeProjectElem;
+  let projTitle = document.querySelector('.proj-title');
+  let projDesc = document.querySelector('.proj-desc');
 
   const addAllProjectsToUI = () => {
     let allProjects = getProjects();
@@ -23,12 +29,34 @@ const ProjectUI = (() => {
     projectLi.appendChild(projectBtn);
     sidebar.append(projectLi);
     projectBtn.textContent = project.title;
-    //projectBtn.addEventListener('click', printProject());
+    projectBtn.addEventListener('click', printProject);
     return projectBtn;
   }
 
-  const printProject = (e) => {
+  const renderAllProjectTodos = () => {
+    for (const key in activeProject.items) {
+      TodoUI.createRow(activeProject.items[key])
+    }
+  }
 
+  const printProject = (e) => {
+    if (activeProjectElem) {
+      activeProjectElem.classList.remove('active');
+    }
+    projectIndex = findProject(e.target.parentNode);
+    e.target.classList.add('active');
+    activeProject = getProjects()[projectIndex];
+    activeProjectElem = e.target;
+    
+    projTitle.textContent = activeProject.title;
+    projDesc.textContent = activeProject.description;
+    console.log(projTitle)
+    renderAllProjectTodos;
+  }
+
+  const findProject = (element) => {
+    let index = Array.from(sidebar.children).indexOf(element);
+    return index;
   }
 
   return { addAllProjectsToUI, addNewProjectToUI };

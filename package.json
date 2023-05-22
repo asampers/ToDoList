@@ -4,6 +4,7 @@
   "description": "to do list app",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "build": "webpack"
@@ -27,7 +28,8 @@
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
     "webpack": "^5.82.0",
-    "webpack-cli": "^5.0.2"
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.7",
