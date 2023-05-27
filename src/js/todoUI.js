@@ -21,11 +21,11 @@ const TodoUI = (() => {
 		checkbox.checked = todo.completed;
     checkboxDiv.appendChild(checkbox);
 
-    completed.textContent = checkboxDiv
+    completed.appendChild(checkboxDiv) 
     title.textContent = todo.title;
     dueDate.textContent = todo.dueDate;
     priority.textContent = todo.priority;
-    expand.textContent = icon;
+    expand.appendChild(icon);
 
     row.appendChild(completed);
     row.appendChild(title);
