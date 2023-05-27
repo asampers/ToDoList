@@ -14,9 +14,9 @@ const TodoUI = (() => {
     const dueDate = document.createElement('td');
     const priority = document.createElement('td');
     const expand = document.createElement('td');
-    const icon = document.createElement('button');
+    const icon = document.createElement('span');
 
-    icon.innerHTML = '<ion-icon name="chevron-down-outline"></ion-icon>';
+    icon.innerHTML = '<ion-icon size="small" name="chevron-down-outline"></ion-icon>';
     checkbox.type = "checkbox";
 		checkbox.checked = todo.completed;
     checkboxDiv.appendChild(checkbox);
