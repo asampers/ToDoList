@@ -51,8 +51,7 @@ const ProjectUI = (() => {
     
     projTitle.textContent = activeProject.title;
     projDesc.textContent = activeProject.description;
-    console.log(projTitle)
-    renderAllProjectTodos;
+    renderAllProjectTodos();
   }
 
   const findProject = (element) => {

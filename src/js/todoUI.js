@@ -2,11 +2,11 @@ const TodoUI = (() => {
   const createRow = (todo) => {
     const todoList = document.querySelector('.todo-list');
     const row = document.createElement('tr');
-    row.appendChildren(fillRow(todo));
+    fillRow(todo, row);
     todoList.appendChild(row);
   }
 
-  const fillRow = (todo) => {
+  const fillRow = (todo, row) => {
     const completed = document.createElement('td');
     const checkboxDiv = document.createElement('div');
     const checkbox = document.createElement('input')
@@ -14,9 +14,9 @@ const TodoUI = (() => {
     const dueDate = document.createElement('td');
     const priority = document.createElement('td');
     const expand = document.createElement('td');
-    const icon = document.createElement('ion-icon');
+    const icon = document.createElement('button');
 
-    icon.localName = 'chevron-down-outline';
+    icon.innerHTML = '<ion-icon name="chevron-down-outline"></ion-icon>';
     checkbox.type = "checkbox";
 		checkbox.checked = todo.completed;
     checkboxDiv.appendChild(checkbox);
@@ -27,7 +27,11 @@ const TodoUI = (() => {
     priority.textContent = todo.priority;
     expand.textContent = icon;
 
-    return title
+    row.appendChild(completed);
+    row.appendChild(title);
+    row.appendChild(dueDate);
+    row.appendChild(priority);
+    row.appendChild(expand);
   }
 
   return { createRow };

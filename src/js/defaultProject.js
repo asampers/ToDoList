@@ -15,6 +15,7 @@ const defaultProject = () => {
                  index: 1 },
             2 : { title: 'Tan',
                  description: 'how we do in the O.C.',
+                 dueDate: '2023-05-11',
                  priority: '',
                  completed: false,
                  index: 2 }
