@@ -35,6 +35,7 @@ const ProjectUI = (() => {
 
   const renderAllProjectTodos = () => {
     for (const key in activeProject.items) {
+      console.log(activeProject.items[key]);
       TodoUI.createRow(activeProject.items[key])
     }
   }

@@ -2,8 +2,8 @@ const TodoUI = (() => {
   const createRow = (todo) => {
     const todoList = document.querySelector('.todo-list');
     const row = document.createElement('tr');
+    row.appendChildren(fillRow(todo));
     todoList.appendChild(row);
-    row.appendChild(fillRow(todo));
   }
 
   const fillRow = (todo) => {
@@ -26,6 +26,8 @@ const TodoUI = (() => {
     dueDate.textContent = todo.dueDate;
     priority.textContent = todo.priority;
     expand.textContent = icon;
+
+    return title
   }
 
   return { createRow };
