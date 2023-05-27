@@ -7,7 +7,7 @@
   <title>To Do List</title>
 <script defer src="main.js"></script></head>
 <body>
-<div class="">
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand bg-light p-3">
       <div class="container-fluid justify-content-between">
@@ -19,8 +19,8 @@
             </button>
       </div>
   </nav>
-
-    <div class="d-flex flex-column pt-0 p-3 bg-light border-top" style="width: 280px; height: 93vh">
+  <div class="row">
+    <div class="col d-flex flex-column pt-0 p-3 bg-light border-top" style="width: 280px; height: 93vh">
       <div class="d-flex justify-content-around align-items-center mt-3">  
         <a href="/" class=" mb-3 mb-md-0 link-dark text-decoration-none">
           <span class="fs-4 ">Projects</span>
@@ -43,7 +43,29 @@
         </a>
       </div>
     </div>
-</div>    
+
+      <!-- printProject section -->  
+  <section class="col-9 mt-2">
+    <div class="d-flex align-items-center">
+      <h2 class="proj-title me-3"></h2>
+      <ion-icon name="trash-outline"></ion-icon>
+    </div>
+    <p class="proj-desc"></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Completed?</th>
+          <th>Task Name</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="todo-list">
+      </tbody>
+    </table>
+  </section>
+</div>   
 
 <!-- newTask Modal -->
   <div class="modal fade" id="newTask">
@@ -126,27 +148,6 @@
     </div>
   </div>
 
-<!-- printProject section -->  
-<section>
-  <div>
-    <h2 class="proj-title"></h2>
-    <ion-icon name="trash-outline"></ion-icon>
-  </div>
-  <p class="proj-desc"></p>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Completed?</th>
-        <th>Task Name</th>
-        <th>Due Date</th>
-        <th>Priority</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody class="todo-list">
-    </tbody>
-  </table>
-</section>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
