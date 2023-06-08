@@ -12,20 +12,20 @@
   <nav class="navbar navbar-expand bg-light p-3">
       <div class="container-fluid justify-content-between">
       <div></div>
-        <a class="fs-4" href="#">To Do List</a>
-        <!-- Button to Open the newTaskModal -->
-            <button type="button" class="btn btn-primary new-task-btn" data-bs-toggle="modal" data-bs-target="#newTask">
-              <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon>Add Task</span> 
-            </button>
+        <a class="h1" href="#">To Do List</a>
+        <!-- Button to Open pe newTaskModal -->
+          <button type="button" class="btn btn-primary new-task-btn" data-bs-toggle="modal" data-bs-target="#newTask">
+            <span><ion-icon name="add-outline"></ion-icon>Add Task</span> 
+          </button>
       </div>
   </nav>
   <div class="row">
-    <div class="col d-flex flex-column pt-0 p-3 bg-light border-top" style="width: 280px; height: 93vh">
+    <div class="col d-flex flex-column pt-0 p-3 bg-light border-top" style="width: 280px; height: 90vh">
       <div class="d-flex justify-content-around align-items-center mt-3">  
         <a href="/" class=" mb-3 mb-md-0 link-dark text-decoration-none">
           <span class="fs-4 ">Projects</span>
         </a>  
-        <!-- Button to Open the newProjectModal -->
+        <!-- Button to Open pe newProjectModal -->
         <span class="">
           <button type="button" class="btn btn-primary btn-sm new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
             <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon></span> 
@@ -45,26 +45,22 @@
     </div>
 
       <!-- printProject section -->  
-  <section class="col-9 mt-2">
+  <div class="col-9 pt-2">
     <div class="d-flex align-items-center">
       <h2 class="proj-title me-3"></h2>
       <ion-icon name="trash-outline"></ion-icon>
     </div>
     <p class="proj-desc"></p>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Task Name</th>
-          <th>Due Date</th>
-          <th>Priority</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody class="todo-list">
-      </tbody>
-    </table>
-  </section>
+    <div class="todo-header px-4 pb-2 d-flex justify-content-between">
+          <b></b>
+          <b class="text-uppercase text-decoration-underline">Task Name</b>
+          <b class="text-uppercase text-decoration-underline">Due Date</b>
+          <b class="text-uppercase text-decoration-underline">Priority</b>
+          <b class="text-uppercase"></b>
+    </div>  
+    <div class="todo-list px-4">
+    </div>
+  </div>
 </div>   
 
 <!-- newTask Modal -->
