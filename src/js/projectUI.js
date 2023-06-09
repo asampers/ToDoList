@@ -1,5 +1,5 @@
 import { getProjects } from "./index";
-import TodoUI from "./todoUI";
+import { TodoUI } from "./todoUI";
 
 const ProjectUI = (() => {
   const sidebar = document.querySelector(".sidebar");
@@ -44,7 +44,7 @@ const ProjectUI = (() => {
 
   const renderAllProjectTodos = () => {
     for (const key in activeProject.items) {
-      TodoUI.createRow(activeProject.items[key]);
+      TodoUI.addNewTodoToUI(activeProject.items[key]);
     }
   };
 

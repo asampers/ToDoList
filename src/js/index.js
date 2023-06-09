@@ -9,6 +9,7 @@ import { createToDo, addToDoToProj } from "./todo";
 import defaultProject from "./defaultProject";
 import defaultCount from "./defaultCount";
 import { ProjectUI } from "./projectUI";
+import { TodoUI } from "./todoUI";
 
 const getProjects = () => {
   return JSON.parse(localStorage.getItem("allProjects") || "[]");
@@ -19,6 +20,7 @@ newTask.addEventListener("submit", (event) => {
   event.preventDefault();
   let task = createToDo(event);
   addToDoToProj(task);
+  TodoUI.addNewTodoToUI(task);
   newTask.reset();
   document.querySelector(".new-task-btn").click();
 });

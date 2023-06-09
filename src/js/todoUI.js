@@ -1,5 +1,5 @@
 const TodoUI = (() => {
-  const createRow = (todo) => {
+  const addNewTodoToUI = (todo) => {
     const todoList = document.querySelector(".todo-list");
     const row = document.createElement("div");
 
@@ -67,7 +67,7 @@ const TodoUI = (() => {
     row.appendChild(createHiddenField(todo));
   };
 
-  return { createRow };
+  return { addNewTodoToUI };
 })();
 
-export default TodoUI;
+export { TodoUI };
