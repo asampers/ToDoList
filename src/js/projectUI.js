@@ -44,7 +44,6 @@ const ProjectUI = (() => {
 
   const renderAllProjectTodos = () => {
     for (const key in activeProject.items) {
-      console.log(activeProject.items[key]);
       TodoUI.createRow(activeProject.items[key]);
     }
   };
@@ -69,7 +68,11 @@ const ProjectUI = (() => {
     return index;
   };
 
-  return { addAllProjectsToUI, addNewProjectToUI };
+  const getActiveProject = () => {
+    return { projectIndex, activeProjectElem, activeProject };
+  };
+
+  return { addAllProjectsToUI, addNewProjectToUI, getActiveProject };
 })();
 
 export { ProjectUI };
