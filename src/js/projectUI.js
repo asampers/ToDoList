@@ -8,6 +8,7 @@ const ProjectUI = (() => {
   let activeProjectElem;
   let projTitle = document.querySelector(".proj-title");
   let projDesc = document.querySelector(".proj-desc");
+  let projDelete = document.querySelector(".proj-delete");
 
   const addAllProjectsToUI = () => {
     let allProjects = getProjects();
@@ -59,6 +60,7 @@ const ProjectUI = (() => {
 
     projTitle.textContent = activeProject.title;
     projDesc.textContent = activeProject.description;
+    projDelete.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
     clearProjectTodos();
     renderAllProjectTodos();
   };
