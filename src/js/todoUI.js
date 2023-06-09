@@ -16,8 +16,7 @@ const TodoUI = (() => {
     const dueDate = document.createElement("span");
     const priority = document.createElement("span");
     const expand = document.createElement("button");
-    const edit = document.createElement("button");
-    const btnDiv = document.createElement("div");
+
     const titleCheckDiv = document.createElement("div");
 
     viewField.classList.add("d-flex", "justify-content-between");
@@ -26,24 +25,20 @@ const TodoUI = (() => {
     expand.classList.add("btn", "btn-sm", "btn-outline-info");
     expand.setAttribute("data-bs-target", `#todo-${todo.index}`);
     expand.setAttribute("data-bs-toggle", "collapse");
-    edit.classList.add("btn", "btn-sm", "btn-outline-success", "ms-3");
 
     checkbox.checked = todo.completed;
     title.textContent = todo.title;
     dueDate.textContent = todo.dueDate;
     priority.textContent = todo.priority;
     expand.innerHTML = "<ion-icon name='chevron-down-outline'></ion-icon>";
-    edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
 
     titleCheckDiv.appendChild(checkbox);
     titleCheckDiv.appendChild(title);
-    btnDiv.appendChild(expand);
-    btnDiv.appendChild(edit);
 
     viewField.appendChild(titleCheckDiv);
     viewField.appendChild(dueDate);
     viewField.appendChild(priority);
-    viewField.appendChild(btnDiv);
+    viewField.appendChild(expand);
 
     return viewField;
   };
@@ -51,13 +46,28 @@ const TodoUI = (() => {
   const createHiddenField = (todo) => {
     const hiddenField = document.createElement("div");
     const description = document.createElement("span");
+    const edit = document.createElement("button");
+    const deleteBtn = document.createElement("button");
+    const btnDiv = document.createElement("div");
 
     hiddenField.id = `todo-${todo.index}`;
-    hiddenField.classList.add("collapse", "ps-4");
-
+    hiddenField.classList.add("collapse", "ps-4", "py-3");
+    btnDiv.classList.add("float-end");
+    edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
+    deleteBtn.classList.add(
+      "btn",
+      "btn-sm",
+      "btn-outline-danger",
+      "task-delete"
+    );
     description.innerHTML = `<u>Description</u>: ${todo.description || "none"}`;
+    edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
+    deleteBtn.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
 
+    btnDiv.appendChild(edit);
+    btnDiv.appendChild(deleteBtn);
     hiddenField.appendChild(description);
+    hiddenField.appendChild(btnDiv);
 
     return hiddenField;
   };
