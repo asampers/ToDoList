@@ -31,11 +31,26 @@ const createToDo = (event) => {
 };
 
 const addToDoToProj = (todo) => {
-  const allProjects = getProjects();
+  let allProjects = getProjects();
   const index = ProjectUI.getActiveProject().projectIndex;
   allProjects[index].items[todo.index] = todo;
+  localStorage.setItem("allProjects", JSON.stringify(allProjects));
+};
+
+const removeToDo = (e) => {
+  let answer = confirm("Are you sure you want to delete this task?");
+  if (!answer) {
+    return;
+  }
+
+  let allProjects = getProjects();
+  console.log(e.target);
+  const todoIndex = e.currentTarget.dataset.id;
+  console.log(todoIndex);
+  const projectIndex = ProjectUI.getActiveProject().projectIndex;
+  delete allProjects[projectIndex].items[todoIndex];
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
   console.log(allProjects);
 };
 
-export { createToDo, addToDoToProj };
+export { createToDo, addToDoToProj, removeToDo };

@@ -1,3 +1,5 @@
+import { removeToDo } from "./todo";
+
 const TodoUI = (() => {
   const addNewTodoToUI = (todo) => {
     const todoList = document.querySelector(".todo-list");
@@ -60,6 +62,8 @@ const TodoUI = (() => {
       "btn-outline-danger",
       "task-delete"
     );
+    deleteBtn.setAttribute("data-id", `${todo.index}`);
+    deleteBtn.addEventListener("click", removeToDo);
     description.innerHTML = `<u>Description</u>: ${todo.description || "none"}`;
     edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
     deleteBtn.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
