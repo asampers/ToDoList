@@ -42,15 +42,16 @@
 
       <!-- printProject section -->  
   <div class="col-9">
-    <div class="d-flex justify-content-between pt-2">
+    <div class="d-flex align-items-center justify-content-between pt-2">
       <div class="d-flex align-items-center">
         <h2 class="proj-title mx-4"></h2>
         <button class="btn btn-sm btn-outline-danger proj-delete"></button>
       </div>
       <!-- Button to Open newTaskModal -->
-          <button type="button" class="btn btn-sm btn-primary new-task-btn me-4" data-bs-toggle="modal" data-bs-target="#newTask">
-            <span d-flex align-items-center>Task<ion-icon name="add-outline"></ion-icon></span> 
-          </button>
+      <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn me-4" data-bs-toggle="modal" data-bs-target="#newTask">
+        <span>Add Task</span>
+        <ion-icon name="add-outline"></ion-icon>
+      </button>       
     </div>
     <p class="proj-desc mx-4"></p>
     <div class="todo-header mb-2 d-flex justify-content-between">
