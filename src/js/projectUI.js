@@ -1,5 +1,6 @@
 import { getProjects } from "./index";
 import { TodoUI } from "./todoUI";
+import { removeProject } from "./project";
 
 const ProjectUI = (() => {
   const sidebar = document.querySelector(".sidebar");
@@ -61,8 +62,16 @@ const ProjectUI = (() => {
     projTitle.textContent = activeProject.title;
     projDesc.textContent = activeProject.description;
     projDelete.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
+    projDelete.addEventListener("click", removeProject);
     clearProjectTodos();
     renderAllProjectTodos();
+  };
+
+  const removeProjectFromUI = () => {
+    sidebar.removeChild(activeProjectElem.parentNode);
+    projTitle.textContent = "";
+    projDesc.textContent = "";
+    clearProjectTodos();
   };
 
   const findProject = (element) => {
@@ -74,7 +83,12 @@ const ProjectUI = (() => {
     return { projectIndex, activeProjectElem, activeProject };
   };
 
-  return { addAllProjectsToUI, addNewProjectToUI, getActiveProject };
+  return {
+    addAllProjectsToUI,
+    addNewProjectToUI,
+    getActiveProject,
+    removeProjectFromUI,
+  };
 })();
 
 export { ProjectUI };

@@ -1,23 +1,36 @@
-import { getProjects } from './index';
+import { getProjects } from "./index";
+import { ProjectUI } from "./projectUI";
 
-const ProjectFactory = (title, description, items={}) => {
-  
+const ProjectFactory = (title, description, items = {}) => {
   return { title, description, items };
-}
+};
 
 const createProject = (event) => {
   let formValue = event.target.elements;
-	
+
   const title = formValue.title.value;
-	const desc = formValue.description.value;
+  const desc = formValue.description.value;
 
   return ProjectFactory(title, desc);
-}
+};
 
 const addProject = (project) => {
   const allProjects = getProjects();
   allProjects.push(project);
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
-}
+};
 
-export { createProject, addProject };
+const removeProject = () => {
+  let answer = confirm("Are you sure you want to delete this project?");
+  if (!answer) {
+    return;
+  }
+
+  const index = ProjectUI.getActiveProject().projectIndex;
+  let allProjects = getProjects();
+  allProjects.splice(index, 1);
+  localStorage.setItem("allProjects", JSON.stringify(allProjects));
+  ProjectUI.removeProjectFromUI();
+};
+
+export { createProject, addProject, removeProject };
