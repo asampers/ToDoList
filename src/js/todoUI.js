@@ -25,6 +25,7 @@ const TodoUI = (() => {
     titleCheckDiv.classList.add("w-50");
     checkbox.type = "checkbox";
     checkbox.classList.add("me-3");
+    priority.classList.add("priority");
     expand.classList.add("btn", "btn-sm", "btn-outline-info");
     expand.setAttribute("data-bs-target", `#todo-${todo.index}`);
     expand.setAttribute("data-bs-toggle", "collapse");
