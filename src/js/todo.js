@@ -44,9 +44,7 @@ const removeToDo = (e) => {
   }
 
   let allProjects = getProjects();
-  console.log(e.target);
   const todoIndex = e.currentTarget.dataset.id;
-  console.log(todoIndex);
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   delete allProjects[projectIndex].items[todoIndex];
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
@@ -55,4 +53,24 @@ const removeToDo = (e) => {
     .removeChild(e.currentTarget.parentNode.parentNode.parentNode);
 };
 
-export { createToDo, addToDoToProj, removeToDo };
+const completedToDo = (e) => {
+  let allProjects = getProjects();
+  const todoIndex = e.target.dataset.todo;
+  const projectIndex = ProjectUI.getActiveProject().projectIndex;
+  const todo = allProjects[projectIndex].items[todoIndex];
+  todo.completed = e.target.checked;
+  lineThrough(todo.completed, e.target.parentNode.parentNode);
+  localStorage.setItem("allProjects", JSON.stringify(allProjects));
+};
+
+const lineThrough = (completed, div) => {
+  if (completed) {
+    div.style.textDecoration = "line-through";
+    div.classList.add("text-secondary");
+  } else {
+    div.style.textDecoration = "none";
+    div.classList.remove("text-secondary");
+  }
+};
+
+export { createToDo, addToDoToProj, removeToDo, completedToDo };

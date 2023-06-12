@@ -1,4 +1,4 @@
-import { removeToDo } from "./todo";
+import { removeToDo, completedToDo } from "./todo";
 
 const TodoUI = (() => {
   const addNewTodoToUI = (todo) => {
@@ -31,6 +31,8 @@ const TodoUI = (() => {
     expand.setAttribute("data-bs-toggle", "collapse");
 
     checkbox.checked = todo.completed;
+    checkbox.setAttribute("data-todo", `${todo.index}`);
+    checkbox.addEventListener("click", completedToDo);
     title.textContent = todo.title;
     dueDate.textContent = todo.dueDate;
     priority.textContent = todo.priority;
