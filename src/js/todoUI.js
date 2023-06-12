@@ -22,6 +22,7 @@ const TodoUI = (() => {
     const titleCheckDiv = document.createElement("div");
 
     viewField.classList.add("d-flex", "justify-content-between");
+    titleCheckDiv.classList.add("w-50");
     checkbox.type = "checkbox";
     checkbox.classList.add("me-3");
     expand.classList.add("btn", "btn-sm", "btn-outline-info");
