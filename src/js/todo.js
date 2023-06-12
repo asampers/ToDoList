@@ -1,5 +1,6 @@
 import { getProjects } from ".";
 import { ProjectUI } from "./projectUI";
+import { TodoUI } from "./todoUI";
 
 let count = localStorage.getItem("count");
 
@@ -61,6 +62,11 @@ const completedToDo = (e) => {
   todo.completed = e.target.checked;
   lineThrough(todo.completed, e.target.parentNode.parentNode);
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
+  let status = todo.completed ? ".todo-list" : ".completed-list";
+  document
+    .querySelector(`${status}`)
+    .removeChild(e.target.parentNode.parentNode.parentNode);
+  TodoUI.addNewTodoToUI(todo);
 };
 
 const lineThrough = (completed, div) => {
