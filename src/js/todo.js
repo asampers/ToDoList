@@ -50,7 +50,9 @@ const removeToDo = (e) => {
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   delete allProjects[projectIndex].items[todoIndex];
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
-  console.log(allProjects);
+  document
+    .querySelector(".todo-list")
+    .removeChild(e.currentTarget.parentNode.parentNode.parentNode);
 };
 
 export { createToDo, addToDoToProj, removeToDo };
