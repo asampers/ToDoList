@@ -35,13 +35,19 @@ const ProjectUI = (() => {
     return projectBtn;
   };
 
+  const removeAllChildren = (list, child) => {
+    while (child) {
+      list.removeChild(child);
+      child = list.lastElementChild;
+    }
+  };
   const clearProjectTodos = () => {
     let toDoList = document.querySelector(".todo-list");
+    let completedList = document.querySelector(".completed-list");
     let child = toDoList.lastElementChild;
-    while (child) {
-      toDoList.removeChild(child);
-      child = toDoList.lastElementChild;
-    }
+    let completedChild = completedList.lastElementChild;
+    removeAllChildren(toDoList, child);
+    removeAllChildren(completedList, completedChild);
   };
 
   const renderAllProjectTodos = () => {

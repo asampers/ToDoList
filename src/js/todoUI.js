@@ -3,14 +3,21 @@ import { removeToDo, completedToDo } from "./todo";
 const TodoUI = (() => {
   const addNewTodoToUI = (todo) => {
     const todoList = document.querySelector(".todo-list");
+    const completedList = document.querySelector(".completed-list");
     const row = document.createElement("div");
 
     row.classList.add("mb-3", "border", "rounded", "p-2");
 
     fillRow(todo, row);
-    todoList.appendChild(row);
+    todo.completed ? completedList.appendChild(row) : todoList.appendChild(row);
   };
 
+  const lineThrough = (completed, div) => {
+    if (completed) {
+      div.style.textDecoration = "line-through";
+      div.classList.add("text-secondary");
+    }
+  };
   const createViewField = (todo) => {
     const viewField = document.createElement("div");
     const checkbox = document.createElement("input");
@@ -18,10 +25,10 @@ const TodoUI = (() => {
     const dueDate = document.createElement("span");
     const priority = document.createElement("span");
     const expand = document.createElement("button");
-
     const titleCheckDiv = document.createElement("div");
 
     viewField.classList.add("d-flex", "justify-content-between");
+    lineThrough(todo.completed, viewField);
     titleCheckDiv.classList.add("w-50");
     checkbox.type = "checkbox";
     checkbox.classList.add("me-3");
@@ -58,6 +65,7 @@ const TodoUI = (() => {
 
     hiddenField.id = `todo-${todo.index}`;
     hiddenField.classList.add("collapse", "ps-4", "py-3");
+    lineThrough(todo.completed, hiddenField);
     btnDiv.classList.add("float-end");
     edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
     deleteBtn.classList.add(
