@@ -57,6 +57,13 @@ const ProjectUI = (() => {
     }
   };
 
+  const renderShowHideLink = () => {
+    if (document.querySelector(".completed-list").hasChildNodes()) {
+      showHide.textContent = "Hide Completed";
+    } else {
+      showHide.textContent = "";
+    }
+  };
   const printProject = (e) => {
     if (activeProjectElem) {
       activeProjectElem.classList.remove("active");
@@ -72,11 +79,7 @@ const ProjectUI = (() => {
     projDelete.addEventListener("click", removeProject);
     clearProjectTodos();
     renderAllProjectTodos();
-    if (document.querySelector(".completed-list").hasChildNodes()) {
-      showHide.textContent = "Hide Completed";
-    } else {
-      showHide.textContent = "";
-    }
+    renderShowHideLink();
   };
 
   const removeProjectFromUI = () => {

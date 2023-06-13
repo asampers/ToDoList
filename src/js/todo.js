@@ -47,11 +47,11 @@ const removeToDo = (e) => {
   let allProjects = getProjects();
   const todoIndex = e.currentTarget.dataset.id;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
+  const todo = allProjects[projectIndex].items[todoIndex];
+  let status = todo.completed ? ".completed-list" : ".todo-list";
+  TodoUI.removeToDoFromUI(status, e);
   delete allProjects[projectIndex].items[todoIndex];
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
-  document
-    .querySelector(".todo-list")
-    .removeChild(e.currentTarget.parentNode.parentNode.parentNode);
 };
 
 const completedToDo = (e) => {
@@ -63,9 +63,7 @@ const completedToDo = (e) => {
   lineThrough(todo.completed, e.target.parentNode.parentNode);
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
   let status = todo.completed ? ".todo-list" : ".completed-list";
-  document
-    .querySelector(`${status}`)
-    .removeChild(e.target.parentNode.parentNode.parentNode);
+  TodoUI.removeToDoFromUI(status, e);
   TodoUI.addTodoToUI(todo);
 };
 

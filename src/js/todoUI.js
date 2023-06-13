@@ -94,7 +94,13 @@ const TodoUI = (() => {
     row.appendChild(createHiddenField(todo));
   };
 
-  return { addTodoToUI };
+  const removeToDoFromUI = (status, e) => {
+    document
+      .querySelector(`${status}`)
+      .removeChild(e.currentTarget.parentNode.parentNode.parentNode);
+  };
+
+  return { addTodoToUI, removeToDoFromUI };
 })();
 
 export { TodoUI };
