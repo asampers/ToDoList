@@ -103,6 +103,7 @@ const ProjectUI = (() => {
     addNewProjectToUI,
     getActiveProject,
     removeProjectFromUI,
+    renderShowHideLink,
   };
 })();
 
