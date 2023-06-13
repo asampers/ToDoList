@@ -38,6 +38,14 @@ const addToDoToProj = (todo) => {
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
 };
 
+const determineStatus = (source, todo) => {
+  if (source == "delete") {
+    return todo.completed ? ".completed-list" : ".todo-list";
+  } else {
+    return todo.completed ? ".todo-list" : ".completed-list";
+  }
+};
+
 const removeToDo = (e) => {
   let answer = confirm("Are you sure you want to delete this task?");
   if (!answer) {
@@ -48,7 +56,7 @@ const removeToDo = (e) => {
   const todoIndex = e.currentTarget.dataset.id;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   const todo = allProjects[projectIndex].items[todoIndex];
-  let status = todo.completed ? ".completed-list" : ".todo-list";
+  let status = determineStatus("delete", todo);
   TodoUI.removeToDoFromUI(status, e);
   delete allProjects[projectIndex].items[todoIndex];
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
@@ -62,7 +70,7 @@ const completedToDo = (e) => {
   todo.completed = e.target.checked;
   lineThrough(todo.completed, e.target.parentNode.parentNode);
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
-  let status = todo.completed ? ".todo-list" : ".completed-list";
+  let status = determineStatus("complete", todo);
   TodoUI.removeToDoFromUI(status, e);
   TodoUI.addTodoToUI(todo);
   ProjectUI.renderShowHideLink();
