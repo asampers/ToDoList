@@ -66,7 +66,7 @@ const completedToDo = (e) => {
   document
     .querySelector(`${status}`)
     .removeChild(e.target.parentNode.parentNode.parentNode);
-  TodoUI.addNewTodoToUI(todo);
+  TodoUI.addTodoToUI(todo);
 };
 
 const lineThrough = (completed, div) => {

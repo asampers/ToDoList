@@ -1,7 +1,7 @@
 import { removeToDo, completedToDo } from "./todo";
 
 const TodoUI = (() => {
-  const addNewTodoToUI = (todo) => {
+  const addTodoToUI = (todo) => {
     const todoList = document.querySelector(".todo-list");
     const completedList = document.querySelector(".completed-list");
     const row = document.createElement("div");
@@ -18,6 +18,7 @@ const TodoUI = (() => {
       div.classList.add("text-secondary");
     }
   };
+
   const createViewField = (todo) => {
     const viewField = document.createElement("div");
     const checkbox = document.createElement("input");
@@ -93,7 +94,7 @@ const TodoUI = (() => {
     row.appendChild(createHiddenField(todo));
   };
 
-  return { addNewTodoToUI };
+  return { addTodoToUI };
 })();
 
 export { TodoUI };

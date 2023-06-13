@@ -52,7 +52,7 @@ const ProjectUI = (() => {
 
   const renderAllProjectTodos = () => {
     for (const key in activeProject.items) {
-      TodoUI.addNewTodoToUI(activeProject.items[key]);
+      TodoUI.addTodoToUI(activeProject.items[key]);
     }
   };
 

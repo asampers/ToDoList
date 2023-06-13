@@ -20,7 +20,7 @@ newTask.addEventListener("submit", (event) => {
   event.preventDefault();
   let task = createToDo(event);
   addToDoToProj(task);
-  TodoUI.addNewTodoToUI(task);
+  TodoUI.addTodoToUI(task);
   newTask.reset();
   document.querySelector(".new-task-btn").click();
 });
