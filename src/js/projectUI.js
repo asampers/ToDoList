@@ -10,6 +10,7 @@ const ProjectUI = (() => {
   let projTitle = document.querySelector(".proj-title");
   let projDesc = document.querySelector(".proj-desc");
   let projDelete = document.querySelector(".proj-delete");
+  let showHide = document.querySelector(".show-hide-completed");
 
   const addAllProjectsToUI = () => {
     let allProjects = getProjects();
@@ -71,6 +72,11 @@ const ProjectUI = (() => {
     projDelete.addEventListener("click", removeProject);
     clearProjectTodos();
     renderAllProjectTodos();
+    if (document.querySelector(".completed-list").hasChildNodes()) {
+      showHide.textContent = "Hide Completed";
+    } else {
+      showHide.textContent = "";
+    }
   };
 
   const removeProjectFromUI = () => {
