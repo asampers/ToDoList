@@ -15,7 +15,7 @@ const getProjects = () => {
   return JSON.parse(localStorage.getItem("allProjects") || "[]");
 };
 
-const newTask = document.querySelector(".new-task");
+const newTask = document.querySelector(".new-edit-task");
 newTask.addEventListener("submit", (event) => {
   event.preventDefault();
   let task = createToDo(event);

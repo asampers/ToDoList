@@ -47,8 +47,8 @@
         <h2 class="proj-title mx-4"></h2>
         <button class="btn btn-sm btn-outline-danger proj-delete"></button>
       </div>
-      <!-- Button to Open newTaskModal -->
-      <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn me-4" data-bs-toggle="modal" data-bs-target="#newTask">
+      <!-- Button to Open TaskModal -->
+      <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn me-4" data-bs-toggle="modal" data-bs-target="#newEditTask">
         <span>Add Task</span>
         <ion-icon name="add-outline"></ion-icon>
       </button>       
@@ -69,20 +69,20 @@
   </div>
 </div>   
 
-<!-- newTask Modal -->
-  <div class="modal fade" id="newTask">
+<!-- Task Modal -->
+  <div class="modal fade" id="newEditTask">
     <div class="modal-dialog">
       <div class="modal-content">
 
         <!-- Modal Header -->
         <div class="modal-header bg-success text-white">
-          <h4 class="modal-title">New Task</h4>
+          <h4 class="modal-title"></h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <!-- Modal body -->
         <div class="modal-body">
-          <form class="new-task">
+          <form class="new-edit-task">
             <div class="mb-3 mt-3">
               <label for="title" class="form-label">Title:</label>
               <input type="text" class="form-control" id="title"  name="title" required>
@@ -124,7 +124,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header bg-success text-white">
-          <h4 class="modal-title">New Project</h4>
+          <h4 class="modal-title"></h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
