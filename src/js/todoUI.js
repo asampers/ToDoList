@@ -1,4 +1,4 @@
-import { removeToDo, completedToDo } from "./todo";
+import { removeToDo, completedToDo, editToDo } from "./todo";
 
 const TodoUI = (() => {
   const addTodoToUI = (todo) => {
@@ -71,6 +71,7 @@ const TodoUI = (() => {
     btnDiv.classList.add("float-end");
     edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
     edit.setAttribute("data-edit-id", `${todo.index}`);
+    edit.addEventListener("click", editToDo);
     deleteBtn.classList.add(
       "btn",
       "btn-sm",
