@@ -56,8 +56,9 @@ const removeToDo = (e) => {
   const todoIndex = e.currentTarget.dataset.id;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   const todo = allProjects[projectIndex].items[todoIndex];
+  const div = document.querySelector(`#todo-${todo.index}`);
   let status = determineStatus("delete", todo);
-  TodoUI.removeToDoFromUI(status, e);
+  TodoUI.removeToDoFromUI(status, div);
   delete allProjects[projectIndex].items[todoIndex];
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
 };
@@ -67,8 +68,9 @@ const completedToDo = (e) => {
   const todoIndex = e.target.dataset.todo;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   const todo = allProjects[projectIndex].items[todoIndex];
+  const div = document.querySelector(`#todo-${todo.index}`);
   todo.completed = e.target.checked;
-  lineThrough(todo.completed, e.target.parentNode.parentNode);
+  lineThrough(todo.completed, div);
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
   let status = determineStatus("complete", todo);
   TodoUI.removeToDoFromUI(status, e);

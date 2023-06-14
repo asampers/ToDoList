@@ -6,6 +6,7 @@ const TodoUI = (() => {
     const completedList = document.querySelector(".completed-list");
     const row = document.createElement("div");
 
+    row.id = `todo-${todo.index}`;
     row.classList.add("mb-3", "border", "rounded", "p-2");
 
     fillRow(todo, row);
@@ -35,7 +36,7 @@ const TodoUI = (() => {
     checkbox.classList.add("me-3");
     priority.classList.add("priority");
     expand.classList.add("btn", "btn-sm", "btn-outline-info");
-    expand.setAttribute("data-bs-target", `#todo-${todo.index}`);
+    expand.setAttribute("data-bs-target", `#info-${todo.index}`);
     expand.setAttribute("data-bs-toggle", "collapse");
 
     checkbox.checked = todo.completed;
@@ -64,11 +65,12 @@ const TodoUI = (() => {
     const deleteBtn = document.createElement("button");
     const btnDiv = document.createElement("div");
 
-    hiddenField.id = `todo-${todo.index}`;
+    hiddenField.id = `info-${todo.index}`;
     hiddenField.classList.add("collapse", "ps-4", "py-3");
     lineThrough(todo.completed, hiddenField);
     btnDiv.classList.add("float-end");
     edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
+    edit.setAttribute("data-edit-id", `${todo.index}`);
     deleteBtn.classList.add(
       "btn",
       "btn-sm",
@@ -94,10 +96,8 @@ const TodoUI = (() => {
     row.appendChild(createHiddenField(todo));
   };
 
-  const removeToDoFromUI = (status, e) => {
-    document
-      .querySelector(`${status}`)
-      .removeChild(e.currentTarget.parentNode.parentNode.parentNode);
+  const removeToDoFromUI = (status, div) => {
+    document.querySelector(`${status}`).removeChild(div);
   };
 
   return { addTodoToUI, removeToDoFromUI };
