@@ -1,8 +1,13 @@
 import { getProjects } from "./index";
 import { ProjectUI } from "./projectUI";
 
-const ProjectFactory = (title, description, items = {}) => {
-  return { title, description, items };
+const ProjectFactory = (
+  title,
+  description,
+  hideCompleted = false,
+  items = {}
+) => {
+  return { title, description, hideCompleted, items };
 };
 
 const createProject = (event) => {
