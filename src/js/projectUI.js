@@ -66,25 +66,30 @@ const ProjectUI = (() => {
     const index = ProjectUI.getActiveProject().projectIndex;
     allProjects[index].hideCompleted = !allProjects[index].hideCompleted;
     localStorage.setItem("allProjects", JSON.stringify(allProjects));
-    allProjects[index].hideCompleted
+    activeProject = getProjects()[index];
+    activeProject.hideCompleted
       ? completedList.classList.add("visually-hidden")
       : completedList.classList.remove("visually-hidden");
-    renderShowHideLink(allProjects[index]);
   };
 
-  const setShowHideContent = (project) => {
-    return project.hideCompleted ? "Show Completed" : "Hide Completed";
+  const setShowHideContent = () => {
+    return activeProject.hideCompleted ? "Show Completed" : "Hide Completed";
   };
 
-  const renderShowHideLink = (project) => {
+  const renderShowHideLink = () => {
     if (
       completedList.hasChildNodes() ||
       completedList.classList.contains("visually-hidden")
     ) {
-      showHide.textContent = setShowHideContent(project);
+      showHide.textContent = setShowHideContent();
     } else {
       showHide.textContent = "";
     }
+  };
+
+  const toggleShowHide = () => {
+    toggleShowHideStatus();
+    renderShowHideLink();
   };
 
   const printProject = (e) => {
@@ -102,8 +107,8 @@ const ProjectUI = (() => {
     projDelete.addEventListener("click", removeProject);
     clearProjectTodos();
     renderAllProjectTodos();
-    renderShowHideLink(activeProject);
-    showHide.addEventListener("click", toggleShowHideStatus);
+    renderShowHideLink();
+    showHide.addEventListener("click", toggleShowHide);
   };
 
   const removeProjectFromUI = () => {
