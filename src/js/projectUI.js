@@ -11,6 +11,7 @@ const ProjectUI = (() => {
   let projDesc = document.querySelector(".proj-desc");
   let projDelete = document.querySelector(".proj-delete");
   let showHide = document.querySelector(".show-hide-completed");
+  const completedList = document.querySelector(".completed-list");
 
   const addAllProjectsToUI = () => {
     let allProjects = getProjects();
@@ -55,15 +56,37 @@ const ProjectUI = (() => {
     for (const key in activeProject.items) {
       TodoUI.addTodoToUI(activeProject.items[key]);
     }
+    activeProject.hideCompleted
+      ? completedList.classList.add("visually-hidden")
+      : completedList.classList.remove("visually-hidden");
   };
 
-  const renderShowHideLink = () => {
-    if (document.querySelector(".completed-list").hasChildNodes()) {
-      showHide.textContent = "Hide Completed";
+  const toggleShowHideStatus = () => {
+    let allProjects = getProjects();
+    const index = ProjectUI.getActiveProject().projectIndex;
+    allProjects[index].hideCompleted = !allProjects[index].hideCompleted;
+    localStorage.setItem("allProjects", JSON.stringify(allProjects));
+    allProjects[index].hideCompleted
+      ? completedList.classList.add("visually-hidden")
+      : completedList.classList.remove("visually-hidden");
+    renderShowHideLink(allProjects[index]);
+  };
+
+  const setShowHideContent = (project) => {
+    return project.hideCompleted ? "Show Completed" : "Hide Completed";
+  };
+
+  const renderShowHideLink = (project) => {
+    if (
+      completedList.hasChildNodes() ||
+      completedList.classList.contains("visually-hidden")
+    ) {
+      showHide.textContent = setShowHideContent(project);
     } else {
       showHide.textContent = "";
     }
   };
+
   const printProject = (e) => {
     if (activeProjectElem) {
       activeProjectElem.classList.remove("active");
@@ -79,7 +102,8 @@ const ProjectUI = (() => {
     projDelete.addEventListener("click", removeProject);
     clearProjectTodos();
     renderAllProjectTodos();
-    renderShowHideLink();
+    renderShowHideLink(activeProject);
+    showHide.addEventListener("click", toggleShowHideStatus);
   };
 
   const removeProjectFromUI = () => {

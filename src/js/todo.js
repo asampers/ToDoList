@@ -73,7 +73,7 @@ const completedToDo = (e) => {
   let status = determineStatus("complete", todo);
   TodoUI.removeToDoFromUI(status, e);
   TodoUI.addTodoToUI(todo);
-  ProjectUI.renderShowHideLink();
+  ProjectUI.renderShowHideLink(allProjects[projectIndex]);
 };
 
 const lineThrough = (completed, div) => {
