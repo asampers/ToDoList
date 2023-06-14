@@ -89,22 +89,30 @@ const lineThrough = (completed, div) => {
 };
 
 const fillEditForm = (todo) => {
-  const editForm = document.querySelector(".new-edit-task");
+  const editForm = document.querySelector(".new-edit-form");
   editForm.title.value = todo.title;
   editForm.description.value = todo.description;
   editForm.date.value = todo.dueDate;
   editForm.priority.value = todo.priority;
 };
 
-const editToDo = (e) => {
+const saveEditedToDo = () => {
   let allProjects = getProjects();
   const todoIndex = e.currentTarget.dataset.editId;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   const todo = allProjects[projectIndex].items[todoIndex];
   const div = document.querySelector(`#todo-${todo.index}`);
+};
+
+const callEditForm = (e) => {
+  const todoIndex = e.currentTarget.dataset.editId;
+  const activeProject = ProjectUI.getActiveProject().activeProject;
+  const todo = activeProject.items[todoIndex];
   const editTaskbtn = document.querySelector(".new-task-btn");
+  const editModalTitle = document.querySelector(".modal-title");
+  editModalTitle.textContent = "Edit Task";
   fillEditForm(todo);
   editTaskbtn.click();
 };
 
-export { createToDo, addToDoToProj, removeToDo, completedToDo, editToDo };
+export { createToDo, addToDoToProj, removeToDo, completedToDo, callEditForm };

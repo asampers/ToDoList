@@ -15,13 +15,21 @@ const getProjects = () => {
   return JSON.parse(localStorage.getItem("allProjects") || "[]");
 };
 
-const newTask = document.querySelector(".new-edit-task");
-newTask.addEventListener("submit", (event) => {
+const newEditForm = document.querySelector(".new-edit-form");
+const closeBtn = document.querySelector(".close-btn");
+
+const clearForm = (e) => {
+  newEditForm.reset();
+};
+
+closeBtn.addEventListener("click", clearForm);
+
+newEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let task = createToDo(event);
   addToDoToProj(task);
   TodoUI.addTodoToUI(task);
-  newTask.reset();
+  newEditForm.reset();
   document.querySelector(".new-task-btn").click();
 });
 
