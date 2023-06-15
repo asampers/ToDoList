@@ -15,3 +15,18 @@
 .show-hide-completed:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 576px) {
+    .todo-header {
+        width: 100%
+    }
+
+    .task-name {
+        margin-left: 0 !important;
+        width:fit-content !important;
+    }
+
+    .title-check-div {
+        width: fit-content;
+    }
+}

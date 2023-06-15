@@ -52,7 +52,7 @@ const TodoUI = (() => {
 
     viewField.classList.add("d-flex", "justify-content-between");
     lineThrough(todo.completed, viewField);
-    titleCheckDiv.classList.add("w-50");
+    titleCheckDiv.classList.add("w-50", "title-check-div");
     priority.classList.add("priority");
 
     setAndStyleCheckbox(checkbox, todo);
