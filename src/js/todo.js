@@ -14,10 +14,10 @@ const ToDoFactory = (
   description,
   dueDate,
   priority,
-  completed = false,
-  index = increaseCount()
+  index,
+  completed = false
 ) => {
-  return { index, title, description, dueDate, priority, completed };
+  return { title, description, dueDate, priority, index, completed };
 };
 
 const createToDo = (event) => {
@@ -27,8 +27,11 @@ const createToDo = (event) => {
   const desc = formValue.description.value;
   const dueDate = formValue.date.value;
   const priority = formValue.priority.value;
-
-  return ToDoFactory(title, desc, dueDate, priority);
+  let index;
+  formValue.taskID.value
+    ? (index = formValue.taskID.value)
+    : (index = increaseCount());
+  return ToDoFactory(title, desc, dueDate, priority, index);
 };
 
 const addToDoToProj = (todo) => {
@@ -73,7 +76,7 @@ const completedToDo = (e) => {
   lineThrough(todo.completed, div);
   localStorage.setItem("allProjects", JSON.stringify(allProjects));
   let status = determineStatus("complete", todo);
-  TodoUI.removeToDoFromUI(status, e);
+  TodoUI.removeToDoFromUI(status, div);
   TodoUI.addTodoToUI(todo);
   ProjectUI.renderShowHideLink();
 };
@@ -90,24 +93,18 @@ const lineThrough = (completed, div) => {
 
 const fillEditForm = (todo) => {
   const editForm = document.querySelector(".new-edit-form");
+  editForm.taskID.value = todo.index;
   editForm.title.value = todo.title;
   editForm.description.value = todo.description;
   editForm.date.value = todo.dueDate;
   editForm.priority.value = todo.priority;
 };
 
-const saveEditedToDo = () => {
+const callEditForm = (e) => {
   let allProjects = getProjects();
   const todoIndex = e.currentTarget.dataset.editId;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   const todo = allProjects[projectIndex].items[todoIndex];
-  const div = document.querySelector(`#todo-${todo.index}`);
-};
-
-const callEditForm = (e) => {
-  const todoIndex = e.currentTarget.dataset.editId;
-  const activeProject = ProjectUI.getActiveProject().activeProject;
-  const todo = activeProject.items[todoIndex];
   const editTaskbtn = document.querySelector(".new-task-btn");
   const editModalTitle = document.querySelector(".modal-title");
   editModalTitle.textContent = "Edit Task";

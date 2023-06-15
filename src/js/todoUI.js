@@ -2,6 +2,7 @@ import { removeToDo, completedToDo, callEditForm } from "./todo";
 
 const TodoUI = (() => {
   const addTodoToUI = (todo) => {
+    const editedToDo = document.querySelector(`#todo-${todo.index}`);
     const todoList = document.querySelector(".todo-list");
     const completedList = document.querySelector(".completed-list");
     const row = document.createElement("div");
@@ -10,6 +11,11 @@ const TodoUI = (() => {
     row.classList.add("mb-3", "border", "rounded", "p-2");
 
     fillRow(todo, row);
+
+    if (editedToDo) {
+      return editedToDo.replaceWith(row);
+    }
+
     todo.completed ? completedList.appendChild(row) : todoList.appendChild(row);
   };
 
