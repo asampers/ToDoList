@@ -26,6 +26,21 @@ const TodoUI = (() => {
     }
   };
 
+  const setAndStyleCheckbox = (checkbox, todo) => {
+    checkbox.type = "checkbox";
+    checkbox.classList.add("me-3");
+    checkbox.checked = todo.completed;
+    checkbox.setAttribute("data-todo", `${todo.index}`);
+    checkbox.addEventListener("click", completedToDo);
+  };
+
+  const setAndStyleExpand = (expand, todo) => {
+    expand.classList.add("btn", "btn-sm", "btn-outline-info");
+    expand.setAttribute("data-bs-target", `#info-${todo.index}`);
+    expand.setAttribute("data-bs-toggle", "collapse");
+    expand.innerHTML = "<ion-icon name='chevron-down-outline'></ion-icon>";
+  };
+
   const createViewField = (todo) => {
     const viewField = document.createElement("div");
     const checkbox = document.createElement("input");
@@ -38,24 +53,16 @@ const TodoUI = (() => {
     viewField.classList.add("d-flex", "justify-content-between");
     lineThrough(todo.completed, viewField);
     titleCheckDiv.classList.add("w-50");
-    checkbox.type = "checkbox";
-    checkbox.classList.add("me-3");
     priority.classList.add("priority");
-    expand.classList.add("btn", "btn-sm", "btn-outline-info");
-    expand.setAttribute("data-bs-target", `#info-${todo.index}`);
-    expand.setAttribute("data-bs-toggle", "collapse");
 
-    checkbox.checked = todo.completed;
-    checkbox.setAttribute("data-todo", `${todo.index}`);
-    checkbox.addEventListener("click", completedToDo);
+    setAndStyleCheckbox(checkbox, todo);
+    setAndStyleExpand(expand, todo);
     title.textContent = todo.title;
     dueDate.textContent = todo.dueDate;
     priority.textContent = todo.priority;
-    expand.innerHTML = "<ion-icon name='chevron-down-outline'></ion-icon>";
 
     titleCheckDiv.appendChild(checkbox);
     titleCheckDiv.appendChild(title);
-
     viewField.appendChild(titleCheckDiv);
     viewField.appendChild(dueDate);
     viewField.appendChild(priority);
@@ -64,6 +71,24 @@ const TodoUI = (() => {
     return viewField;
   };
 
+  const setAndStyleEdit = (edit, todo) => {
+    edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
+    edit.setAttribute("data-edit-id", `${todo.index}`);
+    edit.addEventListener("click", callEditForm);
+    edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
+  };
+
+  const setAndStyleDelete = (deleteBtn, todo) => {
+    deleteBtn.classList.add(
+      "btn",
+      "btn-sm",
+      "btn-outline-danger",
+      "task-delete"
+    );
+    deleteBtn.setAttribute("data-id", `${todo.index}`);
+    deleteBtn.addEventListener("click", removeToDo);
+    deleteBtn.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
+  };
   const createHiddenField = (todo) => {
     const hiddenField = document.createElement("div");
     const description = document.createElement("span");
@@ -75,20 +100,10 @@ const TodoUI = (() => {
     hiddenField.classList.add("collapse", "ps-4", "py-3");
     lineThrough(todo.completed, hiddenField);
     btnDiv.classList.add("float-end");
-    edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
-    edit.setAttribute("data-edit-id", `${todo.index}`);
-    edit.addEventListener("click", callEditForm);
-    deleteBtn.classList.add(
-      "btn",
-      "btn-sm",
-      "btn-outline-danger",
-      "task-delete"
-    );
-    deleteBtn.setAttribute("data-id", `${todo.index}`);
-    deleteBtn.addEventListener("click", removeToDo);
+
+    setAndStyleEdit(edit, todo);
+    setAndStyleDelete(deleteBtn, todo);
     description.innerHTML = `<u>Description</u>: ${todo.description || "none"}`;
-    edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
-    deleteBtn.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
 
     if (!todo.completed) {
       btnDiv.appendChild(edit);
