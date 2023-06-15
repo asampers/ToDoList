@@ -90,7 +90,9 @@ const TodoUI = (() => {
     edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
     deleteBtn.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
 
-    btnDiv.appendChild(edit);
+    if (!todo.completed) {
+      btnDiv.appendChild(edit);
+    }
     btnDiv.appendChild(deleteBtn);
     hiddenField.appendChild(description);
     hiddenField.appendChild(btnDiv);
