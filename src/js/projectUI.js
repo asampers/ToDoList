@@ -11,6 +11,7 @@ const ProjectUI = (() => {
   let projDesc = document.querySelector(".proj-desc");
   let projDelete = document.querySelector(".proj-delete");
   let showHide = document.querySelector(".show-hide-completed");
+  let sideCloseBtn = document.querySelector(".sidebar-btn");
   const completedList = document.querySelector(".completed-list");
 
   const addAllProjectsToUI = () => {
@@ -109,6 +110,9 @@ const ProjectUI = (() => {
     renderAllProjectTodos();
     renderShowHideLink();
     showHide.addEventListener("click", toggleShowHide);
+    if (sideCloseBtn) {
+      sideCloseBtn.click();
+    }
   };
 
   const removeProjectFromUI = () => {
