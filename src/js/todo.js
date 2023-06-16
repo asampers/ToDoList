@@ -105,11 +105,7 @@ const callEditForm = (e) => {
   const todoIndex = e.currentTarget.dataset.editId;
   const projectIndex = ProjectUI.getActiveProject().projectIndex;
   const todo = allProjects[projectIndex].items[todoIndex];
-  const editTaskbtn = document.querySelector(".new-task-btn");
-  const editModalTitle = document.querySelector(".modal-title");
-  editModalTitle.textContent = "Edit Task";
   fillEditForm(todo);
-  editTaskbtn.click();
 };
 
 export { createToDo, addToDoToProj, removeToDo, completedToDo, callEditForm };

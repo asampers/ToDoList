@@ -53,6 +53,21 @@ const init = () => {
     firstProject.firstElementChild.click();
   }
 };
+
+const taskModal = document.getElementById("taskModal");
+if (taskModal) {
+  taskModal.addEventListener("show.bs.modal", (event) => {
+    // Button that triggered the modal
+    const button = event.relatedTarget;
+    // Extract info from data-bs-* attributes
+    const title = button.getAttribute("data-edit-title");
+
+    // Update the modal's content.
+    const modalTitle = taskModal.querySelector(".modal-title");
+    modalTitle.textContent = `${title}`;
+  });
+}
+
 window.onload = defaultCount();
 window.onload = defaultProject();
 init();

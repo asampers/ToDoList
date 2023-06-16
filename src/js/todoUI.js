@@ -74,6 +74,9 @@ const TodoUI = (() => {
   const setAndStyleEdit = (edit, todo) => {
     edit.classList.add("btn", "btn-sm", "btn-outline-success", "me-2");
     edit.setAttribute("data-edit-id", `${todo.index}`);
+    edit.setAttribute("data-bs-toggle", "modal");
+    edit.setAttribute("data-bs-target", "#taskModal");
+    edit.setAttribute("data-edit-title", "Edit Task");
     edit.addEventListener("click", callEditForm);
     edit.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
   };
@@ -89,6 +92,7 @@ const TodoUI = (() => {
     deleteBtn.addEventListener("click", removeToDo);
     deleteBtn.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
   };
+
   const createHiddenField = (todo) => {
     const hiddenField = document.createElement("div");
     const description = document.createElement("span");
