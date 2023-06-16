@@ -17,6 +17,7 @@ const getProjects = () => {
 
 const newEditForm = document.querySelector(".new-edit-form");
 const closeBtn = document.querySelector(".close-btn");
+const newProject = document.querySelector(".new-project");
 
 const clearForm = (e) => {
   newEditForm.reset();
@@ -33,7 +34,6 @@ newEditForm.addEventListener("submit", (event) => {
   document.querySelector(".new-task-btn").click();
 });
 
-const newProject = document.querySelector(".new-project");
 newProject.addEventListener("submit", (event) => {
   event.preventDefault();
   let project = createProject(event);
@@ -45,6 +45,13 @@ newProject.addEventListener("submit", (event) => {
 
 const init = () => {
   ProjectUI.addAllProjectsToUI();
+  let sidebar = document.querySelector(".sidebar");
+  let firstProject = sidebar.firstElementChild;
+
+  //goes to the first project page on document load
+  if (firstProject) {
+    firstProject.firstElementChild.click();
+  }
 };
 window.onload = defaultCount();
 window.onload = defaultProject();
