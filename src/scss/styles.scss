@@ -16,6 +16,32 @@
     text-decoration: underline;
 }
 
+@media screen and (min-width: 768px) {
+    .side-nav {
+        display: flex;
+        flex-direction: column;
+        max-width: 280px;
+        height: 90vh;
+        padding: 1rem;
+    }
+
+    .sidebar-btn {
+        display: none;
+    }
+
+    .offcanvas-header-md {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar {
+        padding: 0;
+        padding-top: 1rem;
+        margin-bottom: auto;
+    }
+}
+
 @media screen and (max-width: 576px) {   
     .todo-header {
         width: 100%
