@@ -21,7 +21,7 @@
         display: flex;
         flex-direction: column;
         max-width: 280px;
-        height: 90vh;
+        height: 92.3vh;
         padding: 1rem;
     }
 
@@ -29,20 +29,23 @@
         display: none;
     }
 
-    .offcanvas-header-md {
+    #side-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0;
     }
 
     .sidebar {
+        display: flex;
+        flex-direction: column;
         padding: 0;
         padding-top: 1rem;
         margin-bottom: auto;
     }
 }
 
-@media screen and (max-width: 576px) {   
+@media screen and (max-width: 767px) {   
     .todo-header {
         width: 100%
     }
@@ -54,5 +57,14 @@
 
     .title-check-div {
         width: fit-content !important;
+    }
+
+    .new-project-btn {
+        margin-right: auto;
+        margin-left: 1rem;
+    }
+
+    .offcanvas-header {
+        padding-bottom: 0;
     }
 }
