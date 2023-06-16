@@ -9,19 +9,18 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-sm bg-light p-3">
-      <div class="container-fluid justify-content-between">
-        <!-- Button to open the offcanvas sidebar -->
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-          Open Offcanvas Sidebar
-        </button>
-        <a class="h1" href="#">To Do List</a>
-      </div>
+  <nav class="navbar bg-light p-3">
+    <!-- Button to open the offcanvas sidebar -->
+    <button class="btn btn-sm btn-outline-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+    <span></span>
+    <a class="navbar-brand display-1" href="#">To Do List</a>
   </nav>
   <div class="d-flex">
-    <div class="side-nav offcanvas offcanvas-start bg-light border-top" id="demo">
-      <div class="offcanvas-header">  
-        <h1 class="offcanvas-title">Projects</h1>
+    <div class="side-nav offcanvas-md offcanvas-start bg-light border-top" id="demo">
+      <div class="offcanvas-header-md">  
+        <h1 class="offcanvas-title-md">Projects</h1>
         <!-- Button to Open newProjectModal -->
         <button type="button" class="btn btn-primary btn-sm new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
           <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon></span> 
@@ -29,7 +28,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button> 
       </div>
       <hr>
-      <ul class="sidebar offcanvas-body">
+      <ul class="sidebar offcanvas-body-md">
       </ul>
       <hr>
       <div>
