@@ -9,27 +9,27 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand bg-light p-3">
+  <nav class="navbar navbar-expand-sm bg-light p-3">
       <div class="container-fluid justify-content-between">
-        <div></div>
+        <!-- Button to open the offcanvas sidebar -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+          Open Offcanvas Sidebar
+        </button>
         <a class="h1" href="#">To Do List</a>
       </div>
   </nav>
-  <div class="row g-0">
-    <div class="col d-flex flex-column pt-0 p-3 bg-light border-top" style="width: 280px; height: 90vh">
-      <div class="d-flex justify-content-around align-items-center mt-3">  
-        <a href="/" class=" mb-3 mb-md-0 link-dark text-decoration-none">
-          <span class="fs-4 ">Projects</span>
-        </a>  
+  <div class="d-flex">
+    <div class="side-nav offcanvas offcanvas-start bg-light border-top" id="demo">
+      <div class="offcanvas-header">  
+        <h1 class="offcanvas-title">Projects</h1>
         <!-- Button to Open newProjectModal -->
-        <span class="">
-          <button type="button" class="btn btn-primary btn-sm new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
-            <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon></span> 
-          </button>
-        </span>
+        <button type="button" class="btn btn-primary btn-sm new-project-btn" data-bs-toggle="modal" data-bs-target="#newProject">
+          <span class="d-flex align-items-center"><ion-icon name="add-outline"></ion-icon></span> 
+        </button>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button> 
       </div>
       <hr>
-      <ul class="sidebar nav nav-pills flex-column mb-auto pt-3">
+      <ul class="sidebar offcanvas-body">
       </ul>
       <hr>
       <div>
@@ -40,33 +40,34 @@
       </div>
     </div>
 
-      <!-- printProject section -->  
-  <div class="content col-md-9 col-sm-12">
-    <div class="container d-flex align-items-center justify-content-between pt-2">
-      <div class="d-flex align-items-center">
-        <h2 class="proj-title mx-4"></h2>
-        <button class="btn btn-sm btn-outline-danger proj-delete"></button>
+        <!-- printProject section -->  
+    <div class="content col-md-9 col-12">
+      <div class="container d-flex align-items-center justify-content-between py-2  px-4">
+        <div class="d-flex align-items-center">
+          <h2 class="proj-title me-4"></h2>
+          <button class="btn btn-sm btn-outline-danger proj-delete"></button>
+        </div>
+        <!-- Button to Open TaskModal -->
+        <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn" data-bs-toggle="modal" data-bs-target="#newEditTask">
+          <span>Add Task</span>
+          <ion-icon name="add-outline"></ion-icon>
+        </button>       
       </div>
-      <!-- Button to Open TaskModal -->
-      <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn me-4" data-bs-toggle="modal" data-bs-target="#newEditTask">
-        <span>Add Task</span>
-        <ion-icon name="add-outline"></ion-icon>
-      </button>       
+      <div class="container d-flex align-items-center justify-content-between pt-2 p-4">
+        <span class="proj-desc"></span>
+        <a class="show-hide-completed" href="#"></a>
+      </div>
+      <div class="container todo-header mb-2 ps-4 pe-5 d-flex justify-content-between">
+            <b class="task-name text-uppercase text-decoration-underline ms-5 w-50">Task Name</b>
+            <b class="text-uppercase text-decoration-underline me-2">Due Date</b>
+            <b class="text-uppercase text-decoration-underline">Priority</b>
+            <span></span>
+      </div>  
+      <div class="todo-list px-4 container"></div>
+      
+      <div class="completed-list px-4 container"></div>
     </div>
-    <div class="container d-flex align-items-center justify-content-between pt-2 p-4">
-      <span class="proj-desc"></span>
-      <a class="show-hide-completed" href="#"></a>
-    </div>
-    <div class="container todo-header mb-2 ps-4 pe-5 d-flex justify-content-between">
-          <b class="task-name text-uppercase text-decoration-underline ms-5 w-50">Task Name</b>
-          <b class="text-uppercase text-decoration-underline me-2">Due Date</b>
-          <b class="text-uppercase text-decoration-underline">Priority</b>
-          <span></span>
-    </div>  
-    <div class="todo-list px-4 container">
-    </div>
-    <div class="completed-list px-4 container"></div>
-  </div>
+  </div>  
 </div>   
 
 <!-- Task Modal -->
