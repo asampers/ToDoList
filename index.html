@@ -48,7 +48,7 @@
           <button class="btn btn-sm btn-outline-danger proj-delete me-3 d-none"></button>
         </div>
         <!-- Button to Open TaskModal -->
-        <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn d-none" data-bs-toggle="modal" data-bs-target="#newEditTask">
+        <button type="button" class="d-flex align-items-center btn btn-sm btn-outline-primary new-task-btn d-none" data-bs-toggle="modal" data-bs-target="#taskModal" data-edit-title="Add Task">
           <span>Add Task</span>
           <ion-icon name="add-outline"></ion-icon>
         </button>       
@@ -71,7 +71,7 @@
 </div>   
 
 <!-- Task Modal -->
-  <div class="modal fade" id="newEditTask">
+  <div class="modal fade" id="taskModal">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -126,7 +126,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header bg-success text-white">
-          <h4 class="modal-title"></h4>
+          <h4 class="modal-title">Add Project</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
