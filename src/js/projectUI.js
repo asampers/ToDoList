@@ -10,6 +10,7 @@ const ProjectUI = (() => {
   let projTitle = document.querySelector(".proj-title");
   let projDesc = document.querySelector(".proj-desc");
   let projDelete = document.querySelector(".proj-delete");
+  let newTaskBtn = document.querySelector(".new-task-btn");
   let showHide = document.querySelector(".show-hide-completed");
   let sideCloseBtn = document.querySelector(".sidebar-btn");
   const completedList = document.querySelector(".completed-list");
@@ -62,6 +63,23 @@ const ProjectUI = (() => {
       : completedList.classList.remove("visually-hidden");
   };
 
+  const clearProjectHeader = () => {
+    projTitle.textContent = "";
+    projDesc.textContent = "";
+    showHide.textContent = "";
+    projDelete.classList.add("d-none");
+    newTaskBtn.classList.add("d-none");
+  };
+
+  const renderProjectHeader = (activeProject) => {
+    projTitle.textContent = activeProject.title;
+    projDesc.textContent = activeProject.description;
+    projDelete.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
+    projDelete.addEventListener("click", removeProject);
+    projDelete.classList.remove("d-none");
+    newTaskBtn.classList.remove("d-none");
+  };
+
   const toggleShowHideStatus = () => {
     let allProjects = getProjects();
     const index = ProjectUI.getActiveProject().projectIndex;
@@ -102,10 +120,7 @@ const ProjectUI = (() => {
     activeProject = getProjects()[projectIndex];
     activeProjectElem = e.target;
 
-    projTitle.textContent = activeProject.title;
-    projDesc.textContent = activeProject.description;
-    projDelete.innerHTML = '<ion-icon name="trash-outline"></ion-icon>';
-    projDelete.addEventListener("click", removeProject);
+    renderProjectHeader(activeProject);
     clearProjectTodos();
     renderAllProjectTodos();
     renderShowHideLink();
@@ -115,11 +130,27 @@ const ProjectUI = (() => {
     }
   };
 
+  const chooseNextProjAfterDel = () => {
+    let temp;
+
+    if (activeProjectElem.parentNode.nextElementSibling) {
+      temp = activeProjectElem.parentNode.nextElementSibling;
+    }
+    if (activeProjectElem.parentNode.previousElementSibling) {
+      temp = activeProjectElem.parentNode.previousElementSibling;
+    }
+    return temp;
+  };
+
   const removeProjectFromUI = () => {
+    let temp = chooseNextProjAfterDel();
     sidebar.removeChild(activeProjectElem.parentNode);
-    projTitle.textContent = "";
-    projDesc.textContent = "";
-    clearProjectTodos();
+    if (temp) {
+      temp.firstElementChild.click();
+    } else {
+      clearProjectHeader();
+      clearProjectTodos();
+    }
   };
 
   const findProject = (element) => {
