@@ -57,9 +57,14 @@ const TodoUI = (() => {
     const expand = document.createElement("button");
     const titleCheckDiv = document.createElement("div");
 
-    viewField.classList.add("d-flex", "justify-content-between");
+    viewField.classList.add(
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
     lineThrough(todo.completed, viewField);
     titleCheckDiv.classList.add("w-50", "title-check-div");
+    title.classList.add("todo-title");
     priority.classList.add("priority");
 
     setAndStyleCheckbox(checkbox, todo);

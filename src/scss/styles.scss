@@ -66,7 +66,18 @@
     }
 
     .title-check-div {
-        width: fit-content !important;
+        display: flex;
+        width: 109px !important;
+    }
+
+    .proj-title {
+        max-width: 190px;
+        word-wrap: break-word;
+    }
+
+    .todo-title {
+        width: 85px !important;
+        word-wrap: break-word;
     }
 
     .new-project-btn {
