@@ -1,6 +1,10 @@
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
 
+.navbar, .side-nav {
+    background-color: rgba(132, 165, 157) !important;
+}
+
 .todo-header {
     width: 95%;
 }

@@ -8,7 +8,14 @@ const TodoUI = (() => {
     const row = document.createElement("div");
 
     row.id = `todo-${todo.index}`;
-    row.classList.add("mb-3", "border", "rounded", "p-2", "shadow-sm");
+    row.classList.add(
+      "mb-3",
+      "border",
+      "rounded",
+      "p-2",
+      "bg-light",
+      "shadow-sm"
+    );
 
     fillRow(todo, row);
 
