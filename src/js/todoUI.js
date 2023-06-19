@@ -66,6 +66,7 @@ const TodoUI = (() => {
     lineThrough(todo.completed, viewField);
     titleCheckDiv.classList.add("w-50", "title-check-div");
     title.classList.add("todo-title");
+    dueDate.classList.add("due-date");
     priority.classList.add("priority");
 
     setAndStyleCheckbox(checkbox, todo);
