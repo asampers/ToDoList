@@ -9,18 +9,20 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar p-2 shadow-sm">
-    <!-- Button to open the offcanvas sidebar -->
-    <button class="btn btn-sm btn-outline-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive">
-      <ion-icon name="menu-outline"></ion-icon>
-    </button>
-    <span></span>
-    <span class="navbar-brand fs-4">To Do List
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </span>
+  <nav class="navbar p-2">
+    <div class="container-fluid">
+      <!-- Button to open the offcanvas sidebar -->
+      <button class="btn btn-sm btn-outline-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+      <span></span>
+      <span class="navbar-brand fs-4 border border-2 border-dark rounded px-2">To Do List
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </span>
+    </div>
   </nav>
   <div class="d-flex">
-    <div class="side-nav offcanvas-md offcanvas-start shadow" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+    <div class="side-nav offcanvas-md offcanvas-start" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
       <div class="offcanvas-header" id="side-header">  
         <h2 class="offcanvas-title" id="offcanvasResponsiveLabel">Projects</h2>
         <!-- Button to Open newProjectModal -->
@@ -43,7 +45,7 @@
     </div>
 
         <!-- printProject section -->  
-    <div class="content col-md-9 col-12">
+    <div class="content w-100">
       <div class="container d-flex align-items-center justify-content-between py-2  px-4">
         <div class="d-flex align-items-center">
           <h2 class="proj-title me-4"></h2>
