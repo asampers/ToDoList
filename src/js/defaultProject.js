@@ -30,7 +30,7 @@ const defaultProject = () => {
       {
         title: "My List",
         description: "things I gotta do",
-        hideCompleted,
+        hideCompleted: false,
         items,
       },
     ];
