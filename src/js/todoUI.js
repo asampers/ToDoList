@@ -56,6 +56,7 @@ const TodoUI = (() => {
     const priority = document.createElement("span");
     const expand = document.createElement("button");
     const titleCheckDiv = document.createElement("div");
+    let formatDistanceToNow = require("date-fns/formatDistanceToNow");
 
     viewField.classList.add(
       "d-flex",
@@ -70,7 +71,7 @@ const TodoUI = (() => {
     setAndStyleCheckbox(checkbox, todo);
     setAndStyleExpand(expand, todo);
     title.textContent = todo.title;
-    dueDate.textContent = todo.dueDate;
+    dueDate.textContent = formatDistanceToNow(todo.dueDate);
     priority.textContent = todo.priority;
 
     titleCheckDiv.appendChild(checkbox);
